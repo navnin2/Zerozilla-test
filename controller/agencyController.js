@@ -28,7 +28,7 @@ exports.createAgencyAndClient = async (req, res) => {
         const newClient = await new Client({ ...client, agencyId: agent_id });
         await newClient.save();
 
-        res.status(201).json({ message: 'Agency and Client created successfully' });
+        res.status(201).json({ message: 'Agency and Client created successfully', data: newClient });
     } catch (error) {
         res.status(500).json({ message: 'Server Error', error: error.message });
     }
